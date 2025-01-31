@@ -4,7 +4,7 @@ import json
 import time
 
 # Path ke direktori tempat file konfigurasi disimpan
-config_directory = "/storage/emulated/0/Download/HTTPCustom/kontol.hc"
+config_directory = "/storage/emulated/0/Download/HTTPCustom/"  # Mengarah ke folder
 
 # Fungsi untuk membaca file konfigurasi
 def read_config_file(file_path):
@@ -47,7 +47,8 @@ def save_log(data, log_file="sniff_log.json"):
 
 # Fungsi untuk memindai direktori dan memproses file konfigurasi baru
 def scan_configs():
-    files = [f for f in os.listdir(config_directory) if f.endswith('.conf')]
+    # Menyesuaikan dengan file .hc, bukan .conf
+    files = [f for f in os.listdir(config_directory) if f.endswith('.hc')]
     for file_name in files:
         file_path = os.path.join(config_directory, file_name)
         config_content = read_config_file(file_path)
